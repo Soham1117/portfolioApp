@@ -1,6 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import UnderlinedText from "./UnderlinedText";
-
+import self from "../assets/self.jpg";
 const About = () => {
   return (
     <div className="flex flex-col z-[10] gap-10 items-start pt-12 lg:pt-36 justify-end lg:items-start lg:mx-[13%] lg:px-0  px-8 lg:justify-center lg:mt-24 min-h-[80vh]">
@@ -84,7 +84,7 @@ const About = () => {
             </div>
             <div className="z-20 relative bg-slate lg:w-96 lg:h-1/2 w-72  group-hover:scale-105 transition-all duration-300 ease-in-out ">
               <img
-                src="src\assets\self.jpg"
+                src={self}
                 alt="Example"
                 className="w-full h-full rounded-[16px] border-t border-indigo-600"
               />

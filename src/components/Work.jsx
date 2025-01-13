@@ -2,6 +2,9 @@ import SectionHeading from "./SectionHeading";
 import Project from "./Project";
 import ProjectInverted from "./ProjectInverted";
 import { useState, useEffect } from "react";
+import cs from "../assets/cs.jpeg";
+import spp from "../assets/spp.jpeg";
+import medi from "../assets/medi.jpeg";
 
 const Work = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -11,7 +14,7 @@ const Work = () => {
       github: "",
       external:
         "https://docs.google.com/presentation/d/1bfXCxSfuFbCcqo7is7GxovuHTJJJGjWd690NL7l3Mic/edit#slide=id.g2cf005e6ef9_0_71",
-      image: "src\\assets\\cs.jpeg",
+      image: cs,
       mainContent:
         "Developed an intelligent system to detect and localize anomalies in untrimmed surveillance videos using weak video-level labels for training. Leveraged transfer learning with DenseNet121 and Vision Transformers (ViT-16) to build a robust anomaly detection pipeline.",
       tools: ["Python", "PyTorch", "DenseNet121", "ViT", "UCF Crime Dataset"],
@@ -21,7 +24,7 @@ const Work = () => {
       title: "Stock Price Prediction",
       github: "",
       external: "https://doi.org/10.1007/978-981-19-3571-8_4",
-      image: "src\\assets\\spp.jpeg",
+      image: spp,
       mainContent:
         "Built a sentiment-based stock price prediction model using custom CNNs and LSTMs for time-series data. Designed a Google and Twitter news scraper to create a sentiment dataset and published the findings in the Springer Journal.",
       tools: [
@@ -37,7 +40,7 @@ const Work = () => {
       title: "MediLab - Medicine Store Locator",
       github: "",
       external: "",
-      image: "src\\assets\\medi.jpeg",
+      image: medi,
       mainContent:
         "Developed a web app to locate nearby medicine stores using Django for server-side logic, React for a responsive user interface, and PostgreSQL for efficient data management. Streamlined deployment with Docker and GitHub Actions, improving automation and reducing manual overhead.",
       tools: [

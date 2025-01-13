@@ -14,6 +14,11 @@ import {
 import { RiTailwindCssFill } from "react-icons/ri";
 import { BiLogoCPlusPlus } from "react-icons/bi";
 import { BsNvidia } from "react-icons/bs";
+import rds from "../assets/rds.png";
+import s3 from "../assets/s3.png";
+import cf from "../assets/cf.png";
+import drc from "../assets/drc.jpg";
+import lnt from "../assets/lnt.jpg";
 
 const Experience = () => {
   const [first, setFirst] = useState(true);
@@ -153,26 +158,14 @@ const Experience = () => {
                   <RiTailwindCssFill />
 
                   <div>
-                    <img
-                      src="src/assets/rds.png"
-                      alt="aws"
-                      className="w-8 h-8"
-                    />
+                    <img src={rds} alt="aws" className="w-8 h-8" />
                   </div>
 
                   <div>
-                    <img
-                      src="src/assets/s3.png"
-                      alt="aws"
-                      className="w-8 h-8"
-                    />
+                    <img src={s3} alt="aws" className="w-8 h-8" />
                   </div>
                   <div>
-                    <img
-                      src="src/assets/cf.png"
-                      alt="aws"
-                      className="w-8 h-8"
-                    />
+                    <img src={cf} alt="aws" className="w-8 h-8" />
                   </div>
                 </div>
               </div>
@@ -357,7 +350,7 @@ const Experience = () => {
               <div className="z-10 flex absolute top-[-10%] lg:top-[-10%] left-[0%] items-center justify-center bg-[rgba(223,154,255,0.1)] rounded-[16px] lg:w-[100%] lg:h-[120%] w-[110%] h-[120%]"></div>
               <div className="z-20 lg:w-[90%] lg:h-[90%] w-72 h-72 group-hover:scale-105 transition-all duration-300 ease-in-out">
                 <img
-                  src="src/assets/drc.jpg"
+                  src={drc}
                   alt="Example"
                   className="w-full h-full rounded-[16px] border-t object-top object-cover border-indigo-600"
                 />
@@ -373,7 +366,7 @@ const Experience = () => {
               <div className="z-10 flex absolute top-[-10%] lg:top-[-10%] left-[0%] items-center justify-center bg-[rgba(223,154,255,0.1)] rounded-[16px] lg:w-[100%] lg:h-[120%] w-[110%] h-[120%]"></div>
               <div className="z-20 lg:w-[90%] lg:h-[90%] w-72 h-72 group-hover:scale-105 transition-all duration-300 ease-in-out">
                 <img
-                  src="src/assets/lnt.jpg"
+                  src={lnt}
                   alt="Example"
                   className="w-full h-full rounded-[16px] border-t object-top object-cover border-indigo-600"
                 />
@@ -389,7 +382,7 @@ const Experience = () => {
               <div className="z-10 flex absolute top-[-10%] lg:top-[-10%] left-[0%] items-center justify-center bg-[rgba(223,154,255,0.1)] rounded-[16px] lg:w-[100%] lg:h-[120%] w-[110%] h-[120%]"></div>
               <div className="z-20 lg:w-[90%] lg:h-[90%] w-72 h-72 group-hover:scale-105 transition-all duration-300 ease-in-out">
                 <img
-                  src="src/assets/lnt.jpg"
+                  src={lnt}
                   alt="Example"
                   className="w-full h-full rounded-[16px] border-t object-top object-cover border-indigo-600"
                 />

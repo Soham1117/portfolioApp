@@ -1,6 +1,7 @@
 import { FaFile, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import SectionHeading from "./SectionHeading";
+import element from "../assets/element.png";
 
 const FooterX = () => {
   return (
@@ -75,7 +76,7 @@ const FooterX = () => {
         </div>
       </div>
       <div className="hidden lg:flex w-full items-center justify-center">
-        <img src="src/assets/element.png" className="w-2/3" />
+        <img src={element} className="w-2/3" />
       </div>
     </div>
   );
