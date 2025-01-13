@@ -30,12 +30,12 @@ const FooterX = () => {
             <div className="flex lg:flex-col flex-row gap-8">
               <div className="flex flex-row gap-10 items-center">
                 <div className="hidden lg:flex w-[1px] h-10 bg-white z-[30] "></div>
-                <a href="mailto:sohampatel1117@gmail">
+                <a href="mailto:sohampatel1117@gmail.com">
                   <IoMdMail className="text-white text-2xl lg:text-4xl z-[30] hover:-translate-y-2 transition-all ease-in-out duration-200 cursor-pointer" />
                 </a>
               </div>
               <div className="flex flex-col gap-4 lg:ml-10">
-                <span className="text-white/60">sohampatel1117@gmail</span>
+                <span className="text-white/60">sohampatel1117@gmail.com</span>
               </div>
             </div>
           </div>
