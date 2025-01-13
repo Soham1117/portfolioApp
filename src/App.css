@@ -1,0 +1,62 @@
+body {
+  /* background: radial-gradient(circle, #0b2c2c, #131313); */
+  background: linear-gradient(to bottom, #030117, #060325);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker gray when hovered */
+}
+
+/* Firefox-specific styles */
+html {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #080064 #080064; /* Thumb color and track color */
+}
+
+body,
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "hero";
+  src: url("src/assets/fonts/hero.f2befad45d409ef85ca1.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bg-dotted {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-animation 3s ease infinite;
+}
+
+.another-gradient {
+  background-color: black;
+  background-image: radial-gradient(
+    circle farthest-side at 0% 100%,
+    #401048,
+    #000000
+  );
+}
