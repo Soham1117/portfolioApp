@@ -18,7 +18,7 @@ function App() {
   const [loading, setLoading] = useState(true); // State for the loader
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 20); // Hide loader after 3 seconds
+    const timer = setTimeout(() => setLoading(false), 3000); // Hide loader after 3 seconds
     return () => clearTimeout(timer);
   }, []);
 
