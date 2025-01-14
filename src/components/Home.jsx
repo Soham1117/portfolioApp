@@ -3,11 +3,27 @@ import { useState, useEffect } from "react";
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isVisible2, setIsVisible2] = useState(false);
+  const [isVisible3, setIsVisible3] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 1000);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible2(true);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible3(true);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -17,7 +33,7 @@ function Home() {
         <div className="flex flex-col gap-12 justify-center items-center z-[10]">
           <span
             className={`text-[#D1D5DB] text-lg lg:text-xl font-poppins transition-all duration-100 ease-in-out ${
-              isVisible
+              isVisible3
                 ? "translate-y-0 opacity-100"
                 : "translate-y-5 opacity-0"
             }`}
@@ -26,8 +42,8 @@ function Home() {
           </span>
           <div className="flex flex-col justify-center items-center gap-3">
             <span
-              className={`text-transparent bg-clip-text bg-gradient-to-r from-[#A1C4FD] via-[#6087ff] to-[#cccccc] font-custom text-6xl lg:text-[9rem] font-bold transition-all duration-300 ease-in-out animate-gradient ${
-                isVisible
+              className={`text-transparent bg-clip-text bg-gradient-to-r from-[#A1C4FD] via-[#6087ff] to-[#cccccc] font-custom text-6xl lg:text-[9rem] font-bold transition-all duration-700 ease-in-out animate-gradient ${
+                isVisible3
                   ? "translate-y-0 opacity-100"
                   : "translate-y-5 opacity-0"
               }`}
@@ -37,7 +53,7 @@ function Home() {
 
             <span
               className={`text-[#7A9BFF] font-custom text-center text-3xl lg:text-7xl font-bold transition-all duration-500 ease-in-out ${
-                isVisible
+                isVisible2
                   ? "translate-y-0 opacity-100"
                   : "translate-y-5 opacity-0"
               }`}

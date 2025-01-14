@@ -1,13 +1,16 @@
 import SectionHeading from "./SectionHeading";
 import Project from "./Project";
 import ProjectInverted from "./ProjectInverted";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import cs from "../assets/cs.jpeg";
 import spp from "../assets/spp.jpeg";
 import medi from "../assets/medi.jpg";
 
 const Work = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const componentRef = useRef(null);
+
   const projects = [
     {
       title: "Crime Detection in Surveillance Videos",
@@ -64,8 +67,37 @@ const Work = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col gap-10 items-start justify-start lg:items-start lg:justify-start lg:mx-[13%] lg:py-24 lg:px-0 p-8 mt-0 lg:mt-0 min-h-[100vh] font-poppins text-[#7A9BFF] lg:border-b border-dotted border-white/20">
+    <div
+      ref={componentRef}
+      className={`flex flex-col gap-10 items-start justify-start lg:items-start lg:justify-start lg:mx-[13%] lg:py-24 lg:px-0 p-8 mt-0 lg:mt-0 min-h-[100vh] font-poppins text-[#7A9BFF] lg:border-b border-dotted border-white/20 transition-all duration-1000 ease-in-out ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+      }`}
+    >
       <div className="lg:ml-[25%]">
         <SectionHeading heading={"04. Some Things I've Built"} length={80} />
       </div>

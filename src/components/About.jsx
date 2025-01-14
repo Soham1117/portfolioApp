@@ -1,9 +1,44 @@
 import SectionHeading from "./SectionHeading";
 import UnderlinedText from "./UnderlinedText";
 import self from "../assets/self.jpg";
+import { useEffect, useState, useRef } from "react";
+
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const componentRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(componentRef.current); // Cleanup observer
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col z-[10] gap-10 items-start pt-12 lg:pt-36 justify-end lg:items-start lg:mx-[13%] lg:px-0  px-8 lg:justify-center lg:mt-24 min-h-[80vh]">
+    <div
+      ref={componentRef} // Attach the reference
+      className={`flex flex-col z-[10] gap-10 items-start pt-12 lg:pt-36 justify-end lg:items-start 
+      lg:mx-[13%] lg:px-0 px-8 lg:justify-start min-h-[80vh] transition-all duration-1000 ease-in-out ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+      }`}
+    >
       <div className="flex lg:flex-row flex-col justify-start lg:items-center items-center lg:gap-0 gap-12 z-[30]">
         <div className="flex flex-col items-start gap-10 w-full lg:w-[50%]">
           <SectionHeading heading={"02. About Me"} length={52} />
@@ -82,7 +117,7 @@ const About = () => {
             <div className="z-10 flex absolute top-[-10%] left-[-10%] items-center justify-center bg-[rgba(223,154,255,0.05)] rounded-[16px] w-[120%] h-[120%]">
               <div className="relative top-0 left-0 w-[100%] h-[100%] overflow-hidden  bg-indigo-600/20 rounded-full filter blur-3xl mix-blend-overlay"></div>
             </div>
-            <div className="z-20 relative bg-slate lg:w-96 lg:h-1/2 w-72  group-hover:scale-105 transition-all duration-300 ease-in-out ">
+            <div className="z-20 relative bg-slate lg:w-80 lg:h-1/2 w-72  group-hover:scale-105 transition-all duration-300 ease-in-out ">
               <img
                 src={self}
                 alt="Example"

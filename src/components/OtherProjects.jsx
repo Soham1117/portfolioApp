@@ -1,15 +1,41 @@
 import ProjectO from "./ProjectO";
 import SectionHeading from "./SectionHeading";
-import { useEffect, useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const OtherProjects = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const componentRef = useRef(null);
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 1000);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(componentRef.current);
+      }
+    };
   }, []);
 
   const projects = [
@@ -78,7 +104,12 @@ const OtherProjects = () => {
   const visibleProjects = showMore ? projects : projects.slice(0, 6);
 
   return (
-    <div className="flex flex-col gap-10 items-start justify-start lg:items-start lg:justify-center lg:mx-[13%] lg:py-48 lg:px-0 p-8 mt-40 lg:mt-0 min-h-[100vh] font-poppins text-[#7A9BFF]">
+    <div
+      ref={componentRef}
+      className={`flex flex-col gap-10 items-start justify-start lg:items-start lg:justify-center 
+      lg:mx-[13%] lg:py-48 lg:px-0 p-8 mt-40 lg:mt-0 min-h-[100vh] font-poppins text-[#7A9BFF] transition-all duration-1000 ease-in-out 
+      ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
+    >
       <div className="lg:ml-[25%]">
         <SectionHeading heading={"Other Noteworthy Projects"} length={80} />
       </div>

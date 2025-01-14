@@ -1,6 +1,6 @@
 import { FaGitlab, FaPython, FaReact } from "react-icons/fa6";
 import SectionHeading from "./SectionHeading";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   SiConfluence,
   SiCplusplus,
@@ -49,8 +49,41 @@ const Experience = () => {
     setSecond(false);
   }
 
+  const [isVisible, setIsVisible] = useState(false);
+  const componentRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="z-50 flex flex-col lg:gap-0 gap-10 items-start justify-start lg:items-start lg:justify-center lg:mx-[13%] lg:py-48 lg:px-0 p-8  min-h-[100vh] mt-40 font-poppins">
+    <div
+      ref={componentRef}
+      className={`z-50 flex flex-col lg:gap-0 gap-10 items-start justify-start lg:items-start lg:justify-center 
+      lg:mx-[13%] lg:py-48 lg:px-0 p-8  min-h-[100vh] mt-40 font-poppins transition-all duration-1000 ease-in-out ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+      }`}
+    >
       <div className="lg:ml-[25%] z-[30]">
         <SectionHeading
           heading={"03. Where I’ve Worked"}

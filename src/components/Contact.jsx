@@ -1,19 +1,41 @@
 import SectionHeading from "./SectionHeading";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Contact = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const componentRef = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 1000);
-    return () => clearTimeout(timer);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(componentRef.current);
+      }
+    };
   }, []);
   return (
     <div
-      className="flex flex-col gap-10 items-start justify-start lg:items-start lg:justify-center lg:mx-[13%] lg:py-24 
-    lg:px-0 p-8 mt-40 lg:mt-0 min-h-[50vh] font-poppins text-[#7A9BFF] lg:border-b border-dotted border-white/20"
+      ref={componentRef}
+      className={`flex flex-col gap-10 items-start justify-start lg:items-start lg:justify-center lg:mx-[13%] lg:py-24 
+    lg:px-0 p-8 mt-40 lg:mt-0 min-h-[50vh] font-poppins text-[#7A9BFF] lg:border-b border-dotted border-white/20
+    transition-all duration-1000 ease-in-out ${
+      isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+    }`}
     >
       <div className="lg:mx-[25%]">
         <SectionHeading heading={"05. What's Next?"} length={52} />
@@ -31,7 +53,7 @@ const Contact = () => {
           className={`border-2 border-indigo-300 text-indigo-200 font-spacemono rounded-md p-2 pl-3 pr-3  
                     hover:shadow-[4px_4px_0px_rgb(129,40,217)] hover:translate-y-[-3px] hover:translate-x-[-3px] 
                     hover:border-[rgbrgb(129,40,217)] transition-all duration-400 ease-in-out ${
-                      isLoaded
+                      isVisible
                         ? "translate-y-0 opacity-100"
                         : "-translate-y-5 opacity-0"
                     } `}
