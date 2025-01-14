@@ -7,19 +7,11 @@ export default {
     extend: {
       animation: {
         marquee: "marquee 20s linear infinite",
-        precession: "precession 3s ease-in-out infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(-100%)" },
-        },
-        precession: {
-          "0%": { transform: "rotateX(0deg) rotateY(0deg)" },
-          "25%": { transform: "rotateX(20deg) rotateY(20deg)" },
-          "50%": { transform: "rotateX(40deg) rotateY(0deg)" },
-          "75%": { transform: "rotateX(20deg) rotateY(-20deg)" },
-          "100%": { transform: "rotateX(0deg) rotateY(0deg)" },
         },
       },
       colors: {

@@ -35,7 +35,7 @@ function Home() {
             className={`text-[#D1D5DB] text-lg lg:text-xl font-poppins transition-all duration-100 ease-in-out ${
               isVisible3
                 ? "translate-y-0 opacity-100"
-                : "translate-y-5 opacity-0"
+                : "translate-y-0 opacity-0"
             }`}
           >
             Hi, I&apos;m
@@ -45,7 +45,7 @@ function Home() {
               className={`text-transparent bg-clip-text bg-gradient-to-r from-[#A1C4FD] via-[#6087ff] to-[#cccccc] font-custom text-6xl lg:text-[9rem] font-bold transition-all duration-700 ease-in-out animate-gradient ${
                 isVisible3
                   ? "translate-y-0 opacity-100"
-                  : "translate-y-5 opacity-0"
+                  : "translate-y-0 opacity-0"
               }`}
             >
               Soham Patel
@@ -55,7 +55,7 @@ function Home() {
               className={`text-[#7A9BFF] font-custom text-center text-3xl lg:text-7xl font-bold transition-all duration-500 ease-in-out ${
                 isVisible2
                   ? "translate-y-0 opacity-100"
-                  : "translate-y-5 opacity-0"
+                  : "translate-y-0 opacity-0"
               }`}
             >
               A Passionate Software Developer
@@ -65,7 +65,7 @@ function Home() {
             className={`text-[#D1D5DB] font-poppins text-lg  lg:text-lg w-full lg:w-[55%] text-center transition-all duration-700 ease-in-out ${
               isVisible
                 ? "translate-y-0 opacity-100"
-                : "translate-y-5 opacity-0"
+                : "translate-y-0 opacity-0"
             }`}
           >
             I’m a software engineer passionate about crafting efficient and

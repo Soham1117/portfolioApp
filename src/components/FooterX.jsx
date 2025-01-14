@@ -34,9 +34,9 @@ const FooterX = () => {
   return (
     <div
       ref={componentRef}
-      className={`flex flex-col gap-16 lg:gap-0 lg:flex-row items-start justify-start lg:items-start lg:justify-start lg:mx-[13%] lg:py-24 
-      lg:px-0 p-8 mt-12 lg:mt-0 min-h-[60vh] text-wrap font-poppins text-[#7A9BFF] lg:border-b border-dotted border-white/20 transition-all duration-1000 ease-in-out ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+      className={`flex flex-col gap-16 lg:gap-0 lg:flex-row items-start justify-start lg:items-start lg:justify-start lg:mx-[13%] lg:pb-24 
+      lg:px-0 p-8 mt-12 lg:mt-0 min-h-[50vh] text-wrap font-poppins text-[#7A9BFF] lg:border-b border-dotted border-white/20 transition-all duration-1000 ease-in-out ${
+        isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
       <div className="flex flex-col gap-16 items-start justify-start w-full">

@@ -71,10 +71,10 @@ html {
         transparent
       )
       top,
-    linear-gradient(currentColor 0 0) bottom/100% 3px,
+    linear-gradient(currentColor 0 0) bottom/100% 2px,
     radial-gradient(
         farthest-side at bottom,
-        transparent calc(100% - 3px),
+        transparent calc(100% - 2px),
         currentColor calc(100% - 1px),
         transparent
       )
