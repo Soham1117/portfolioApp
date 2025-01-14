@@ -4,7 +4,7 @@ import ProjectInverted from "./ProjectInverted";
 import { useState, useEffect } from "react";
 import cs from "../assets/cs.jpeg";
 import spp from "../assets/spp.jpeg";
-import medi from "../assets/medi.jpeg";
+import medi from "../assets/medi.jpg";
 
 const Work = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
