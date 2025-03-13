@@ -19,7 +19,7 @@ import s3 from "../assets/s3.png";
 import cf from "../assets/cf.png";
 import drc from "../assets/drc.jpg";
 import lnt from "../assets/lnt.jpg";
-
+import UnderlinedText from "./UnderlinedText";
 const Experience = () => {
   const [first, setFirst] = useState(true);
   const [second, setSecond] = useState(false);
@@ -182,6 +182,16 @@ const Experience = () => {
                   Collaborated with cross-functional teams to enhance the
                   dashboard&apos;s functionality, focusing on efficient data
                   processing, seamless user experience, and real-time updates.
+                </li>{" "}
+                <li className="flex items-start before:content-['▹'] before:mr-5 before:text-indigo-200">
+                  {" "}
+                  <span>
+                    Check out a similar dashboard which I built: &nbsp;
+                  </span>
+                  <UnderlinedText url="https://aetherdash.netlify.app/">
+                    {" "}
+                    Aether Dash
+                  </UnderlinedText>
                 </li>{" "}
               </ul>
               <div className="w-full overflow-hidden text-white text-4xl mt-12 bg-midnight-blue p-4 rounded-xl bg-opacity-80 backdrop-blur-3xl shadow-2xl">
